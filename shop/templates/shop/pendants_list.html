@@ -1,0 +1,70 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подвески</title>
+    <link rel="stylesheet" href="{% static 'shop/css/style2.css' %}">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <a href="#"><img src="{% static 'shop/images/image 1.svg' %}" alt="Логотип"></a>
+            <h1>PRETTY</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'jewelry_list' %}">Главная</a></li>
+                    <li><a href="{% url 'rings_list' %}">Кольца</a></li>
+                    <li><a href="{% url 'earrings_list' %}">Серьги</a></li>
+                    <li><a href="{% url 'pendants_list' %}">Подвески</a></li>
+                    <li><a href="{% url 'bracelets_list' %}">Браслеты</a></li>
+                    <li><a href="{% url 'watches_list' %}">Часы</a></li>
+                    <li><a href="{% url 'charms_list' %}">Шармы</a></li>
+                    <li><a href="{% url 'cart_detail' %}">Корзина</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="catalog">
+            <div class="container content" id="pendants">
+                {% if pendants %}
+                <h2>Подвески</h2>
+                <div class="products">
+                    {% for pendant in pendants %}
+                    <div class="product">
+                        <a href="{% url 'jewelry_detail' 'pendant' pendant.id %}">
+                            <img src="{{ pendant.image.url }}" alt="{{ pendant.name }}">
+                        </a>
+                        <p class="product-name">{{ pendant.name }}</p>
+                        <p class="product-description">{{ pendant.description }}</p>
+                        <p class="product-price">Цена: {{ pendant.price }}</p>
+                        (<a href="{% url 'edit_pendant' pendant.id %}">Редактировать</a> |
+                        <a href="{% url 'delete_pendant' pendant.id %}">Удалить</a>)
+                        <form action="{% url 'add_to_cart' pendant.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit">Добавить в корзину</button>
+                        </form>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <p>Нет доступных товаров в этой категории.</p>
+                {% endif %}
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; {% now "Y" %} Магазин украшений "PRETTY"</p>
+        </div>
+    </footer>
+</body>
+
+</html>

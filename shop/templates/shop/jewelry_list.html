@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интернет-магазин</title>
+    <link rel="stylesheet" href="{% static 'shop/css/style.css' %}">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="{% static 'shop/images/image 1.svg' %}" alt="Логотип">
+                <h1>PRETTY</h1>
+            </div>
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li><a href="{% url 'rings_list' %}">Кольца</a></li>
+                    <li><a href="{% url 'earrings_list' %}">Серьги</a></li>
+                    <li><a href="{% url 'pendants_list' %}">Подвески</a></li>
+                    <li><a href="{% url 'bracelets_list' %}">Браслеты</a></li>
+                    <li><a href="{% url 'watches_list' %}">Часы</a></li>
+                    <li><a href="{% url 'charms_list' %}">Шармы</a></li>
+                    <li><a href="{% url 'cart_detail' %}">Корзина</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero" style="background-image: url('{% static 'shop/images/image 8.png' %}')">
+            <div class="hero-content">
+                <h1 class="hero-title">Добро пожаловать в интернет-магазин</h1>
+                <p class="hero-subtitle">Выберите украшения, которые подчеркнут ваш стиль</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Интернет-магазин. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!-- shop/templates/shop/cart_detail.html -->
+
+{% load static %}
+{% load custom_filters %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина</title>
+    <link rel="stylesheet" href="{% static 'shop/css/style1.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="#"><img src="{% static 'shop/images/image 1.svg' %}" alt="Логотип"></a>
+            <h1>PRETTY</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'jewelry_list' %}">Главная</a></li>
+                    <li><a href="{% url 'rings_list' %}">Кольца</a></li>
+                    <li><a href="{% url 'earrings_list' %}">Серьги</a></li>
+                    <li><a href="{% url 'pendants_list' %}">Подвески</a></li>
+                    <li><a href="{% url 'bracelets_list' %}">Браслеты</a></li>
+                    <li><a href="{% url 'watches_list' %}">Часы</a></li>
+                    <li><a href="{% url 'charms_list' %}">Шармы</a></li>
+                    <li><a href="{% url 'cart_detail' %}">Корзина</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="cart">
+            <div class="container">
+                <h2>Корзина</h2>
+                {% if cart %}
+                    <ul>
+                        {% for id, item in cart.items %}
+                        <li>
+                            <img class="img" src="{{ item.image }}" alt="{{ item.name }}">
+                            <p>{{ item.name }}</p>
+                            <p>Количество: {{ item.quantity }}</p>
+                            <p>Цена: {{ item.price }}</p>
+                            <p>Общая цена: {{ item.price|multiply:item.quantity }}</p>
+                            <form action="{% url 'remove_from_cart' id %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit">Удалить</button>
+                            </form>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>Ваша корзина пуста.</p>
+                {% endif %}
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; {% now "Y" %} Магазин украшений "PRETTY"</p>
+        </div>
+    </footer>
+</body>
+</html>

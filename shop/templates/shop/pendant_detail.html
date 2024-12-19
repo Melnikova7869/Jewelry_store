@@ -1,0 +1,15 @@
+{% extends 'shop/base.html' %}
+
+{% block title %}
+    {{ pendant.name }} - Подробности
+{% endblock %}
+
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style3.css' %}">
+    <h2>{{ pendant.name }}</h2>
+    <img src="{{ pendant.image.url }}" alt="{{ pendant.name }}">
+    <p>{{ pendant.description }}</p>
+    <p>Цена: {{ pendant.price }}</p>
+    <a href="{% url 'pendants_list' %}">Назад к списку подвесок</a>
+{% endblock %}

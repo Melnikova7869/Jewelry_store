@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Ювелирный Магазин{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style2.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Ювелирный Магазин</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'jewelry_list' %}">Главная</a></li>
+                <li><a href="{% url 'rings_list' %}">Кольца</a></li>
+                <li><a href="{% url 'earrings_list' %}">Серьги</a></li>
+                <li><a href="{% url 'pendants_list' %}">Подвески</a></li>
+                <li><a href="{% url 'bracelets_list' %}">Браслеты</a></li>
+                <li><a href="{% url 'watches_list' %}">Часы</a></li>
+                <li><a href="{% url 'charms_list' %}">Шармы</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 Ювелирный Магазин. Все права защищены.</p>
+    </footer>
+</body>
+</html>

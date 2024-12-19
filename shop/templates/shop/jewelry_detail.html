@@ -1,0 +1,54 @@
+{% load static %}  
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детали украшения</title>
+    <link rel="stylesheet" href="{% static 'shop/css/style2.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="#"><img src="{% static 'shop/images/image 1.svg' %}" alt="Логотип"></a>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'rings_list' %}">Кольца</a></li>
+                    <li><a href="{% url 'earrings_list' %}">Серьги</a></li>
+                    <li><a href="{% url 'pendants_list' %}">Подвески</a></li>
+                    <li><a href="{% url 'bracelets_list' %}">Браслеты</a></li>
+                    <li><a href="{% url 'watches_list' %}">Часы</a></li>
+                    <li><a href="{% url 'charms_list' %}">Шармы</a></li>
+                    <li><a href="{% url 'cart_detail' %}">Корзина</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section class="details">
+            <div class="container">
+
+                <div class="product-detail">
+                    <img class="img" src="{{ jewelry.image.url }}" alt="{{ jewelry.name }}">
+                    <style>
+                        .img {
+                            width: 300px;
+                        }
+                    </style>
+                    <p class="product-name">{{ jewelry.name }}</p>
+                    <p class="product-description">{{ jewelry.description }}</p>
+                    <p class="product-price">Цена: {{ jewelry.price }}</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; {% now "Y" %} Магазин украшений "PRETTY"</p>
+        </div>
+    </footer>
+</body>
+</html>

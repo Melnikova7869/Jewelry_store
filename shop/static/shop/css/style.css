@@ -1,0 +1,156 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Стили для header */
+.header {
+    background-color: #ffffff;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    width: 150px;
+    /* Размер вашего логотипа */
+}
+
+.nav {
+    float: right;
+}
+
+.nav-menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.nav-menu li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.nav-menu li a {
+    color: #333333;
+    text-decoration: none;
+}
+
+.nav-menu li a:hover {
+    color: #555555;
+}
+
+/* Стили для hero section */
+.hero {
+    background-color: #f0f0f0;
+    padding: 60px 0;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hero {
+    width: cover; /* Растягивает изображение на весь размер контейнера */
+    background-position: left; /* Выравнивает изображение по центру */
+    background-repeat: no-repeat; /* Отключает повторение изображения */
+    height: 400px; /* Высота вашего блока */
+    padding: 60px 0;
+    text-align: center;
+    color: #fff; /* Цвет текста для контраста */
+}
+
+.hero-content {
+    position: relative; /* Позволяет позиционировать содержимое внутри блока */
+    z-index: 1; /* Устанавливает порядок слоёв: содержимое над фоном */
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ffcc00;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.hero-btn:hover {
+    background-color: #ffa500;
+}
+
+
+.hero-title {
+    font-size: 2.5rem;
+    color: #333333;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: #666666;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ffcc00;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.hero-btn:hover {
+    background-color: #ffa500;
+}
+
+.hero-image {
+    margin-top: 40px;
+}
+
+.hero-image img {
+    max-width: 100%;
+}
+
+/* Стили для products section */
+.products {
+    padding: 60px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #333333;
+    margin-bottom: 40px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+/* Стили для footer */
+.footer {
+    background-color: #333333;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+}
